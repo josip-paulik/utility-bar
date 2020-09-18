@@ -1,4 +1,9 @@
-export interface Noun {
+export class Noun {
   id: number;
-  command: string
+  command: string;
+
+  constructor(id: number, command: string) {
+    this.id = id;
+    this.command = command;
+  }
 }

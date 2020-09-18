@@ -2,9 +2,9 @@ import { QueryFunction } from '../query-function';
 import { ReservationManagmentService } from '../reservation-managment.service';
 import { Unit } from '../unit';
 
-export class GetUnitToReserveCommand implements QueryFunction {
+export class GetUnitToReserve implements QueryFunction {
 
-  id: number = 4;
+  id: number = 2;
   nounId: number = 2;
   verbId: number = 1;
   desc: string = "Finds unit by name";

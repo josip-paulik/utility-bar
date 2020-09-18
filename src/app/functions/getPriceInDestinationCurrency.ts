@@ -2,7 +2,7 @@ import { CurrencyService } from '../currency.service';
 import { QueryFunction } from '../query-function';
 import { ReservationManagmentService } from '../reservation-managment.service';
 
-export class GetPriceInDestinationCurrencyCommand implements QueryFunction {
+export class GetPriceInDestinationCurrency implements QueryFunction {
 
   id: number = 3;
   nounId: number = 4;

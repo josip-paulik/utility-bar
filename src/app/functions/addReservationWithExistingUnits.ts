@@ -1,7 +1,7 @@
 import { QueryFunction } from '../query-function';
 import { ReservationManagmentService } from '../reservation-managment.service';
 
-export class AddReservationWithExistingUnitsCommand implements QueryFunction {
+export class AddReservationWithExistingUnits implements QueryFunction {
 
   id: number = 4;
   nounId: number = 1;
