@@ -6,6 +6,7 @@ import { QueryFunction } from './query-function';
 import { OpenReservationCommand } from './functions/openReservationCommand';
 import { GetPriceInDestinationCurrencyCommand } from './functions/getPriceInDestinationCurrencyCommand';
 import { CurrencyService } from './currency.service';
+import { AddReservationWithExistingUnitsCommand } from './functions/addReservationWithExistingUnits';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,7 @@ export class QueryFunctionService {
 
     this.queryFunctions.push(new OpenReservationCommand(reservationManagementService));
     this.queryFunctions.push(new GetPriceInDestinationCurrencyCommand(currencyService));
+    this.queryFunctions.push(new AddReservationWithExistingUnitsCommand(reservationManagementService));
   }
 
   queryForFunction(query: string) {
