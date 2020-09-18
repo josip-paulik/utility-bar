@@ -1,5 +1,6 @@
 import { QueryFunction } from '../query-function';
 import { ReservationManagmentService } from '../reservation-managment.service';
+import { Unit } from '../unit';
 
 export class GetUnitToReserveCommand implements QueryFunction {
 
@@ -15,13 +16,18 @@ export class GetUnitToReserveCommand implements QueryFunction {
 
   doCommand() {
 
-    var units = this.reservationManagementService.getUnitsByName(this.unitName);
+    var units = this.reservationManagementService.getUnitsByName(this.unitName) as Array<Unit>;
+
+    if (units.length == 0) {
+      alert("No items found!");
+      return;
+    }
 
     var alertText = ""
     units.forEach(x => {
       alertText += 'Unit ID = ' + x.id + ' Unit name = ' + x.name + ' Unit price ' + x.price + '\n';
     })
-
+    alert(alertText);
   }
 
   setParams(param: any[]) {

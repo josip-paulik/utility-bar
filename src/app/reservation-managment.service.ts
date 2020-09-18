@@ -48,6 +48,6 @@ export class ReservationManagmentService {
   }
 
   getUnitsByName(unitName: string): Array<Unit> {
-    return this.units.filter(x => x.name.indexOf(unitName) != -1);
+    return this.units.filter(x => x.name.toLowerCase().includes(unitName.toLowerCase()));
   }
 }
