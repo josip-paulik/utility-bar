@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CurrencyService } from './currency.service';
 import { Reservation } from './reservation';
 import { ReservationManagmentService } from './reservation-managment.service';
 
@@ -13,7 +14,7 @@ export class AppComponent implements OnInit{
   /**
    *
    */
-  constructor(private reservationManagmentService: ReservationManagmentService) {
+  constructor(private reservationManagmentService: ReservationManagmentService, private currencyService: CurrencyService) {
   }
 
   ngOnInit(): void {
@@ -30,5 +31,16 @@ export class AppComponent implements OnInit{
     var reservation = this.reservationManagmentService.getReservation(reservationId);
     
     alert(`${reservation.id}  ${reservation.unitsReserved.length}`);
+  }
+
+  async getAmountInDestinationCurrency(checkAmountInput: string): Promise<void> {
+    var checkAmountParams = checkAmountInput.split(' ');
+    var amountInStartCurrency = parseFloat(checkAmountParams[0]);
+    var startCurrency = checkAmountParams[1].toUpperCase();
+    var destinationCurrency = checkAmountParams[2].toUpperCase();
+
+    var amountInDestinationCurrency = await this.currencyService.getAmountInDestinationCurrency(amountInStartCurrency, startCurrency, destinationCurrency);
+    
+    alert(`${amountInStartCurrency} ${startCurrency} = ${amountInDestinationCurrency} ${destinationCurrency}`);
   }
 }

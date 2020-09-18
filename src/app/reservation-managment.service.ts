@@ -28,26 +28,22 @@ export class ReservationManagmentService {
     this.units = this.startupUnits;
   }
 
-  getAllReservations() {
+  getAllReservations(): Array<Reservation> {
     return this.reservations;
   }
 
-  getReservation(id: number) {
+  getReservation(id: number): Reservation {
     var reservation = this.reservations.find(x => x.id == id);
 
     return reservation;
   }
 
-  addReservation(unitIds: Array<number>) {
+  addReservation(unitIds: Array<number>): void {
     var unitsToReserve = this.units.filter(x => unitIds.find(y => y == x.id) !== undefined);
     
     var newId = this.reservations.length + 1;
     var reservation = new Reservation(newId, unitsToReserve);
     
     this.reservations.push(reservation);
-  }
-
-  addUnitToReservation(reservationId: number, unitId: number) {
-    
   }
 }
