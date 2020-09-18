@@ -6,7 +6,7 @@ export class AddReservationWithExistingUnitsCommand implements QueryFunction {
   id: number = 4;
   nounId: number = 1;
   verbId: number = 2;
-  desc: string = "Add reservation with existing unit Ids";
+  desc: string = "Add reservation with existing unit Ids - add res";
   paramsDesc: string = '{List of unit ids separated by space}';
 
   listOfUnitIds: number[];

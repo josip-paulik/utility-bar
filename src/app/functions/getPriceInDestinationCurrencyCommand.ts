@@ -7,7 +7,7 @@ export class GetPriceInDestinationCurrencyCommand implements QueryFunction {
   id: number = 3;
   nounId: number = 4;
   verbId: number = 1;
-  desc: string = "Get price in other currency";
+  desc: string = "Get price in other currency - get cur";
   paramsDesc: string = '{Number} Amount in start currency {string} Start currency {string} Destination currency';
 
   amountInStartCurrency: number;
