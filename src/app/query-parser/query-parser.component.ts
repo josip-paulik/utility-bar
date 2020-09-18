@@ -19,6 +19,10 @@ export class QueryParserComponent implements OnInit {
 
   onKey(event: any) {
 
+    if (event.code === 'Enter') {
+      this.queryFunctionService.runFunction(event.target.value);
+    }
+
     this.queryFunctions = this.queryFunctionService.queryForFunction(event.target.value);
   }
 

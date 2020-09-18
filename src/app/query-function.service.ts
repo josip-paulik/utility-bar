@@ -1,17 +1,21 @@
 import { Injectable } from '@angular/core';
-import { QUERY_FUNCTIONS } from './mock-query-functions';
+import { ReservationManagmentService } from './reservation-managment.service';
 import { NounService } from './noun.service';
 import { VerbService } from './verb.service';
 import { QueryFunction } from './query-function';
+import { OpenReservationCommand } from './functions/openReservationCommand';
 
 @Injectable({
   providedIn: 'root'
 })
 export class QueryFunctionService {
 
-  queryFunctions = QUERY_FUNCTIONS;
+  queryFunctions = [] as QueryFunction[];
 
-  constructor(private nounService: NounService, private verbService: VerbService) { }
+  constructor(private nounService: NounService, private verbService: VerbService, private reservationManagementService: ReservationManagmentService) {
+
+    this.queryFunctions.push(new OpenReservationCommand(reservationManagementService));
+  }
 
   queryForFunction(query: string) {
 
@@ -20,7 +24,7 @@ export class QueryFunctionService {
     var nounText = splitQuery[1];
     var result = this.queryFunctions;
 
-    if (verbText != null) {
+    if (verbText) {
       var verb = this.verbService.getVerbByCommand(verbText);
       if (verb != null) {
         result = result.filter(x => x.verbId == verb.id);
@@ -29,7 +33,7 @@ export class QueryFunctionService {
       }
     }
 
-    if (nounText != null) {
+    if (nounText) {
       var noun = this.nounService.getNounByCommand(nounText);
       if (noun != null) {
         result = result.filter(x => x.nounId == noun.id);
@@ -40,5 +44,38 @@ export class QueryFunctionService {
 
     return result;
   }
+
+  runFunction(query: string) {
+    var splitQuery = query.trim().split(' ');
+    var verbText = splitQuery.shift();
+    var nounText = splitQuery.shift();
+    var result = this.queryFunctions;
+
+    if (verbText) {
+      var verb = this.verbService.getVerbByCommand(verbText);
+      if (verb != null) {
+        result = result.filter(x => x.verbId == verb.id);
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
+
+    if (nounText) {
+      var noun = this.nounService.getNounByCommand(nounText);
+      if (noun != null) {
+        result = result.filter(x => x.nounId == noun.id);
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
+
+    result[0].setParams(splitQuery);
+    result[0].doCommand();
+  }
+
 
 }
