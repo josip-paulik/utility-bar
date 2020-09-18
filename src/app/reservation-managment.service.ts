@@ -46,4 +46,8 @@ export class ReservationManagmentService {
     
     this.reservations.push(reservation);
   }
+
+  getUnitsByName(unitName: string): Array<Unit> {
+    return this.units.filter(x => x.name.toLowerCase().includes(unitName.toLowerCase()));
+  }
 }
