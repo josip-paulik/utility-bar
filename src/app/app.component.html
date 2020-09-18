@@ -1,14 +1,22 @@
-<app-query-parser></app-query-parser>
+<div class="sticky-top bg-primary text-white">
+  <app-query-parser></app-query-parser>
+</div>
 
 <table class="table">
-  <tr *ngFor="let reservation of reservations">
-    <td>{{reservation.id}}</td>
-    <td>
-      <ul *ngFor="let unit of reservation.unitsReserved">
-        <li>{{unit.id}} {{unit.name}} {{unit.price | currency}}</li>
-      </ul>
-    </td>
-  </tr>
+  <thead>
+    <th>Reservation ID</th>
+    <th>Units in reservation</th>
+  </thead>
+  <tbody *ngFor="let reservation of reservations">
+    <tr>
+      <td>{{reservation.id}}</td>
+      <td>
+        <ul *ngFor="let unit of reservation.unitsReserved" class="list-group">
+          <li class="list-group-item">{{unit.id}} {{unit.name}} {{unit.price | currency}}</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
 
 <button class="btn-primary" (click)="addNewReservation()">Press me!</button>

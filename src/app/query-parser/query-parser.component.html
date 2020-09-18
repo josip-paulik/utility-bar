@@ -1,9 +1,9 @@
 <input [(ngModel)]="query" (keyup)="onKey($event)"/>
 
-<div *ngFor="let queryFunction of queryFunctions">
-  <div>
+<ul *ngFor="let queryFunction of queryFunctions" class="list-group">
+  <li class="list-group-item" class="align-middle">
     {{queryFunction.desc}}
     <br />
     {{queryFunction.paramsDesc}}
-  </div>
-</div>
+  </li>
+</ul>
