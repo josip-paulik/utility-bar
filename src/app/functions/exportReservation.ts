@@ -1,9 +1,9 @@
 import { QueryFunction } from '../query-function';
 import { ReservationManagmentService } from '../reservation-managment.service';
 
-export class ExportReservationCommand implements QueryFunction {
+export class ExportReservation implements QueryFunction {
 
-  id: number = 4;
+  id: number = 5;
   nounId: number = 1;
   verbId: number = 5;
   desc: string = "Export reservation for later use. - exp res";

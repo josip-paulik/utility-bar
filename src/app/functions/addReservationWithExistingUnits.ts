@@ -1,9 +1,9 @@
 import { QueryFunction } from '../query-function';
 import { ReservationManagmentService } from '../reservation-managment.service';
 
-export class AddReservationWithExistingUnitsCommand implements QueryFunction {
+export class AddReservationWithExistingUnits implements QueryFunction {
 
-  id: number = 4;
+  id: number = 6;
   nounId: number = 1;
   verbId: number = 2;
   desc: string = "Add reservation with existing unit Ids - add res";

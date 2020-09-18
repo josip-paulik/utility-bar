@@ -1,7 +1,7 @@
 import { QueryFunction } from '../query-function';
 import { ReservationManagmentService } from '../reservation-managment.service';
 
-export class OpenReservationCommand implements QueryFunction{
+export class OpenReservation implements QueryFunction{
 
   id: number = 1;
   nounId: number = 1;
