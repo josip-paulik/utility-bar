@@ -46,4 +46,8 @@ export class ReservationManagmentService {
     
     this.reservations.push(reservation);
   }
+
+  getUnitsByName(unitName: string): Array<Unit> {
+    return this.units.filter(x => x.name.indexOf(unitName) != -1);
+  }
 }

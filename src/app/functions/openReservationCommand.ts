@@ -9,13 +9,13 @@ export class OpenReservationCommand implements QueryFunction{
   desc: string = "Open reservation details";
   paramsDesc: string = '{Number} reservation id';
 
-  param1: number;
+  reservationId: number;
  
   constructor(private reservationManagementService :  ReservationManagmentService) { }
 
   doCommand() {
 
-    var reservation = this.reservationManagementService.getReservation(this.param1);
+    var reservation = this.reservationManagementService.getReservation(this.reservationId);
     var alertText = 'ReservationID = ' + reservation.id + '\n';
     reservation.unitsReserved.forEach(x => {
       alertText += 'Unit ID = ' + x.id + ' Unit name = ' + x.name + ' Unit price = ' + x.price + '\n';
@@ -24,7 +24,7 @@ export class OpenReservationCommand implements QueryFunction{
   }
 
   setParams(param: any[]) {
-    this.param1 = param[0];
+    this.reservationId = param[0] as number;
   }
 
 }
