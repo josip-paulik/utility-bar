@@ -1,3 +1,5 @@
+<app-query-parser></app-query-parser>
+
 <table class="table">
   <tr *ngFor="let reservation of reservations">
     <td>{{reservation.id}}</td>
@@ -11,5 +13,7 @@
 
 <button class="btn-primary" (click)="addNewReservation()">Press me!</button>
 <br />
-<input #reservationIdSearchInput (keyup.enter)="getReservation(reservationIdSearchInput.value)" placeholder="Reservation Id"/>
+<input #reservationIdSearchInput (keyup.enter)="getReservation(reservationIdSearchInput.value)" placeholder="Reservation Id" />
 <button class="btn-primary" (click)="getReservation(reservationIdSearchInput.value)">Get Reservation</button>
+
+<router-outlet></router-outlet>
