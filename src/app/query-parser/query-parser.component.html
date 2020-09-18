@@ -1,0 +1,9 @@
+<input [(ngModel)]="query" (keyup)="onKey($event)"/>
+
+<div *ngFor="let queryFunction of queryFunctions">
+  <div>
+    {{queryFunction.desc}}
+    <br />
+    {{queryFunction.paramsDesc}}
+  </div>
+</div>
