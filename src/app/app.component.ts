@@ -32,15 +32,4 @@ export class AppComponent implements OnInit{
     
     alert(`${reservation.id}  ${reservation.unitsReserved.length}`);
   }
-
-  async getAmountInDestinationCurrency(checkAmountInput: string): Promise<void> {
-    var checkAmountParams = checkAmountInput.split(' ');
-    var amountInStartCurrency = parseFloat(checkAmountParams[0]);
-    var startCurrency = checkAmountParams[1].toUpperCase();
-    var destinationCurrency = checkAmountParams[2].toUpperCase();
-
-    var amountInDestinationCurrency = await this.currencyService.getAmountInDestinationCurrency(amountInStartCurrency, startCurrency, destinationCurrency);
-    
-    alert(`${amountInStartCurrency} ${startCurrency} = ${amountInDestinationCurrency} ${destinationCurrency}`);
-  }
 }

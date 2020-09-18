@@ -13,11 +13,5 @@
 
 <button class="btn-primary" (click)="addNewReservation()">Press me!</button>
 <br />
-<input #reservationIdSearchInput (keyup.enter)="getReservation(reservationIdSearchInput.value)" placeholder="Reservation Id" />
-<button class="btn-primary" (click)="getReservation(reservationIdSearchInput.value)">Get Reservation</button>
-<br />
-<input #checkAmountInput (keyup.enter)="getAmountInDestinationCurrency(checkAmountInput.value)" placeholder="{amount} {startCurrency} {destinationCurrency}">
-<button class="btn-primary" (click)="getAmountInDestinationCurrency(checkAmountInput.value)">Get Amount in other currency</button>
-
 
 <router-outlet></router-outlet>

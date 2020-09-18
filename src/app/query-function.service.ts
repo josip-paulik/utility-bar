@@ -4,6 +4,8 @@ import { NounService } from './noun.service';
 import { VerbService } from './verb.service';
 import { QueryFunction } from './query-function';
 import { OpenReservationCommand } from './functions/openReservationCommand';
+import { GetPriceInDestinationCurrencyCommand } from './functions/getPriceInDestinationCurrencyCommand';
+import { CurrencyService } from './currency.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +14,14 @@ export class QueryFunctionService {
 
   queryFunctions = [] as QueryFunction[];
 
-  constructor(private nounService: NounService, private verbService: VerbService, private reservationManagementService: ReservationManagmentService) {
+  constructor(
+    private nounService: NounService, 
+    private verbService: VerbService, 
+    private reservationManagementService: ReservationManagmentService,
+    private currencyService: CurrencyService) {
 
     this.queryFunctions.push(new OpenReservationCommand(reservationManagementService));
+    this.queryFunctions.push(new GetPriceInDestinationCurrencyCommand(currencyService));
   }
 
   queryForFunction(query: string) {

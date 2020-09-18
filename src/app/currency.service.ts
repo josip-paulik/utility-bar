@@ -13,7 +13,7 @@ export class CurrencyService {
     var exchangeRate = await this.getLatestExchangeRate(startCurrency, destinationCurrency);
     
     var amountInDestinationCurrency = amountInStartCurrency * exchangeRate;
-    
+    console.log(amountInDestinationCurrency);
     return amountInDestinationCurrency;
   }
 
