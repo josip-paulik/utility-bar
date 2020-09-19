@@ -60,16 +60,15 @@ export class QueryFunctionService {
 
     if (verbText) {
       result = result.filter(x => this.verbs.find(y => y.command == verbText) != undefined && this.verbs.find(y => y.command == verbText).id == x.verbId);
-      console.log(result);
     } else {
       return [] as QueryFunction[];
     }
-  
-
+ 
     if (nounText) {
-      result = result.filter(x => this.nouns.find(y => y.command == nounText) != undefined && this.nouns.find(y => y.command == nounText).id == x.nounId);
-    } else {
-      return [] as QueryFunction[];
+      var nounFilter = result.filter(x => this.nouns.find(y => y.command == nounText) != undefined && this.nouns.find(y => y.command == nounText).id == x.nounId);
+      if (nounFilter.length > 0) {
+        result = nounFilter;
+      }
     }
 
     return result;

@@ -8,7 +8,8 @@ export class GetUnitToReserve implements QueryFunction {
   nounId: number = 2;
   verbId: number = 1;
   desc: string = "Finds unit by name";
-  paramsDesc: string = '{String} unit name';
+  shortcut : string = "get itm {}"
+  paramsDesc: string = '{Unit name}';
 
   unitName: string;
 

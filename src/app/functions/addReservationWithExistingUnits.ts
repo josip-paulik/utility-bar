@@ -6,7 +6,8 @@ export class AddReservationWithExistingUnits implements QueryFunction {
   id: number = 6;
   nounId: number = 1;
   verbId: number = 2;
-  desc: string = "Add reservation with existing unit Ids - add res";
+  desc: string = "Add reservation with existing unit Ids";
+  shortcut: string = "add res {}...";
   paramsDesc: string = '{List of unit ids separated by space}';
 
   listOfUnitIds: number[];

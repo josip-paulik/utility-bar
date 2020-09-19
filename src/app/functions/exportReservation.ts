@@ -6,8 +6,9 @@ export class ExportReservation implements QueryFunction {
   id: number = 5;
   nounId: number = 1;
   verbId: number = 5;
-  desc: string = "Export reservation for later use. - exp res";
-  paramsDesc: string = '{ReservationId}';
+  desc: string = "Export reservation for later use";
+  shortcut : string = "exp res {}"
+  paramsDesc: string = '{Reservation ID}';
 
   reservationId: number;
 

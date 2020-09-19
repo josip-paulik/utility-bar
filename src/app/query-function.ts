@@ -3,6 +3,7 @@ export interface QueryFunction {
   nounId: number;
   verbId: number;
   desc: string;
+  shortcut: string;
   paramsDesc: string;
   doCommand: () => void;
   setParams: (param: any[]) => void;

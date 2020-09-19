@@ -1,9 +1,17 @@
 <input [(ngModel)]="query" (keyup)="onKey($event)"/>
 
 <ul *ngFor="let queryFunction of queryFunctions" class="list-group">
-  <li class="list-group-item" class="align-middle">
-    {{queryFunction.desc}}
-    <br />
-    {{queryFunction.paramsDesc}}
+  <li>
+    <div>
+      <div class="font-weight-bold mr-1" style="display:inline-block">
+        {{queryFunction.shortcut}}
+      </div>
+      <div style="display:inline-block">
+        {{queryFunction.desc}}
+      </div>
+    </div>
+    <div class="font-italic">
+      {{queryFunction.paramsDesc}}
+    </div>
   </li>
 </ul>

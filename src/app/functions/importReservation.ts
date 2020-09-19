@@ -7,7 +7,8 @@ export class ImportReservation implements QueryFunction {
   id: number = 4;
   nounId: number = 1;
   verbId: number = 4;
-  desc: string = "Import reservation - imp res";
+  desc: string = "Import reservation";
+  shortcut : string = "imp res"
   paramsDesc: string = '{Copied text from export}';
 
   reservationJson: string;

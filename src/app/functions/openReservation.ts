@@ -6,8 +6,9 @@ export class OpenReservation implements QueryFunction{
   id: number = 1;
   nounId: number = 1;
   verbId: number = 1;
-  desc: string = "Open reservation details - get res";
-  paramsDesc: string = '{Number} reservation id';
+  desc: string = "Open reservation details";
+  shortcut : string = "get res {}"
+  paramsDesc: string = '{Reservation Id}';
 
   reservationId: number;
  
