@@ -21,6 +21,8 @@ export class ImportReservation implements QueryFunction {
     var unitIds = reservation.unitsReserved.map(x => x.id);
 
     this.reservationManagmentService.addReservation(unitIds);
+
+    alert("Reservation imported!");
   }
 
   setParams(param: any[]) {

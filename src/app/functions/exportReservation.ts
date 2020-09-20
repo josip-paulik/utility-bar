@@ -21,13 +21,14 @@ export class ExportReservation implements QueryFunction {
     
     var dummy = document.createElement("input");
 
-    // Add it to the document
     document.body.appendChild(dummy);
 
     dummy.value=reservationAsJSON;
     dummy.select();
     document.execCommand("copy");
     document.body.removeChild(dummy);
+
+    alert("Reservation copied to clipboard!");
   }
 
   setParams(param: any[]) {
